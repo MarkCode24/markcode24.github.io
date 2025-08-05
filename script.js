@@ -55,4 +55,33 @@ Copied();
 
 
 //#region start Fiverr page viewer
-//
+fetch('./app.py')
+    .then(response => response.text())
+    .then(pyText => {
+        // Extract JSON from Python file (assuming it's assigned to a variable)
+        const jsonMatch = pyText.match(/{[\s\S]*}/);
+        if (jsonMatch) {
+            const jsonData = JSON.parse(jsonMatch[0]);
+            console.log(jsonData);
+        } else {
+            console.error("No JSON data found in app.py");
+        }
+    })
+    .catch(error => console.error(error));
+
+
+
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://api.github.com/repos/markcode24/markcode24.github.io/contents/app.py', true);
+    request.onload = function() {
+        if (this.status >= 200 && this.status < 400) {
+            // Success!
+            var data = JSON.parse(this.response);
+            console.log(data);
+            // Process the data as needed
+        } else {
+            // We reached our target server, but it returned an error
+            console.error("Error fetching data from GitHub API");
+        }
+    };
+    request.send();

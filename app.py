@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+import pyaudio as pa;
 from flask_cors import CORS # For handling cross-origin requests
 
 app = Flask(__name__)
@@ -11,4 +12,3 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
