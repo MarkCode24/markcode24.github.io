@@ -1,20 +1,7 @@
-/* Basic styling for UUID Generator */
-
-/* 
-  Ensure your HTML structure looks like this:
-
-  <body>
-    <div class="container">
-      <h1>UUID Generator</h1>
-      <span id="uuid">Your UUID here</span>
-      <button>Generate</button>
-    </div>
-  </body>
-
-  And make sure to link this CSS file in your HTML head:
-  <link rel="stylesheet" href="style.css">
-*/
-
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
     background: #18181b;
     color: #f4f4f5;
@@ -32,6 +19,7 @@ p{
 }
 
 main{
+    display: block;
     background: #747881;
     padding: 20px 50px 70px 60px;
     border-radius: 20px;
@@ -213,3 +201,33 @@ button:hover {
         }
 }
 
+#copy-message {
+    background-color: #38383848;
+    padding: 4px;
+    border-radius: 5px;
+    color: #a3e635;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    margin-left: 10px;
+    position: relative;
+    left: 50px;
+    top : -45px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.toast-isCopied{
+    animation: iscopiedToast 0.5s ease-in;
+}
+
+@keyframes iscopiedToast {
+    0%{
+        transform: translateY(20px);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 0;
+    }
+}
